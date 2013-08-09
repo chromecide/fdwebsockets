@@ -1,0 +1,28 @@
+{
+  "name": "fdtcp",
+  "version": "0.1.1",
+  "description": "Websocket Channels for FluxData",
+  "homepage": "https://github.com/chromecide/fdwebscokets",
+  "keywords": [
+    "FluxData",
+    "events",
+    "event-driven",
+    "framework",
+    "channels",
+    "channel",
+    "FluxData-Channel",
+    "Websockets",
+    "socket.io"
+  ],
+  "author": {
+    "name": "Justin Pradier",
+    "email": "chromecide@chromecide.com",
+    "url": "http://chromecide.com/"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chromecide/fdwebsockets.git"
+  },
+  "main": "index.js"
+}
