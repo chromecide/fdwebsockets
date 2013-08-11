@@ -1,6 +1,6 @@
 var requirejs = require('requirejs');
 
-process.paths = {
+process.fdpaths = {
 	FluxData: __dirname+'/../../FluxData',
 	//mixins: '../../FluxData/lib/mixins',
 	fdwebsockets: __dirname+'/../'
