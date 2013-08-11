@@ -1,21 +1,21 @@
 ;!function(exports, undefined) {
 	
-	var serverChannel = require(__dirname+'/channels/server.js').Channel;
-	var socketChannel = require(__dirname+'/channels/socket.js').Channel;
+	var serverMixin = require(__dirname+'/mixins/server.js').Mixin;
+	var socketMixin = require(__dirname+'/mixins/socket.js').Mixin;
 	
-	var channels = {
-		name: 'TCP',
-		isChannelList: true,
-		Server: serverChannel,
-		Socket: socketChannel
+	var mixins = {
+		name: 'fdwebsockets',
+		isMixinList: true,
+		Server: serverMixin,
+		Socket: socketMixin
 	};
 	
 	if (typeof define === 'function' && define.amd) {
 		define(function() {
-			return channels;
+			return mixins;
 		});
 	} else {
-		exports.Channels = channels;
+		exports.mixins = mixins;
 	}
 
 }(typeof process !== 'undefined' && typeof process.title !== 'undefined' && typeof exports !== 'undefined' ? exports : window);

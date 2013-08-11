@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="requirejs.js"></script>
+		
+		<script>
+			require.config({
+				paths: {
+					'socket.io': 'http://localhost:8081/socket.io/socket.io.js'
+				}
+			});
+		
+			require(['FluxData/index'], function(FluxData){
+				var socketChannel = new FluxData.Channel({
+					mixins:[
+						{
+							type: 'fdwebsockets/mixins/socket',
+							host: 'http://localhost:8081'
+						}
+					]
+				});
+				
+				socketChannel.on('Welcome', function(data){
+					this.publish('Thankyou', {});
+				});
+				
+				socketChannel.onAny(function(data){
+					console.log(this.event);
+					console.log(data);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
