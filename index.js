@@ -1,21 +1,14 @@
-;!function(exports, undefined) {
+if (typeof define !== 'function') {
+    var define = require('amdefine')(module);
+}
+
+define(['./mixins/server.js', './mixins/socket.js'], function(server, socket){
 	
-	var serverMixin = require(__dirname+'/mixins/server.js').Mixin;
-	var socketMixin = require(__dirname+'/mixins/socket.js').Mixin;
-	
-	var mixins = {
+	var mixin = {
 		name: 'fdwebsockets',
-		isMixinList: true,
-		Server: serverMixin,
-		Socket: socketMixin
+		Server: server,
+		Socket: socket
 	};
 	
-	if (typeof define === 'function' && define.amd) {
-		define(function() {
-			return mixins;
-		});
-	} else {
-		exports.mixins = mixins;
-	}
-
-}(typeof process !== 'undefined' && typeof process.title !== 'undefined' && typeof exports !== 'undefined' ? exports : window);
+	return mixin;
+});
